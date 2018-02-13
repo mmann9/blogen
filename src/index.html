@@ -7,6 +7,7 @@
     <title>Blogen Admin Area</title>
 
     <script src="js/fontawesome-all.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -64,8 +65,137 @@
     </div>
 </header>
 
+<!-- ACTIONS -->
+<section id="action" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+                    <span class="fas fa-plus"></span> Add Post
+                </a>
+            </div>
+            <div class="col-md-3"><a href="#" class="btn btn-success btn-block" data-toggle="modal"
+                                     data-target="#addCategoryModal">
+                <span class="fas fa-plus"></span> Add Category
+            </a>
+            </div>
+            <div class="col-md-3"><a href="#" class="btn btn-warning btn-block" data-toggle="modal"
+                                     data-target="#addUserModal">
+                <span class="fas fa-plus"></span> Add User
+            </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- POST MODAL -->
+<div class="modal fade" id="addPostModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Add Post</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="postTitle">Title</label>
+                        <input type="text" class="form-control" id="postTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select name="category" id="category" class="form-control">
+                            <option value="web">Web Development</option>
+                            <option value="tech">Tech Gadgets</option>
+                            <option value="business">Business</option>
+                            <option value="health">Health &amp; Wellness</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Image Upload</label>
+                        <input type="file" id="file" class="form-control-file">
+                        <small class="form-text text-muted">Max Size: 3 MiB</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Body</label>
+                        <textarea name="body" id="body" class="form-control" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CATEGORY MODAL -->
+<div class="modal fade" id="addCategoryModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-secondary text-white">
+                <h5 class="modal-title">Add Category</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="categoryTitle">Title</label>
+                        <input type="text" class="form-control" id="categoryTitle">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- USER MODAL -->
+<div class="modal fade" id="addUserModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title">Add User</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPass">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPass">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-warning" data-dismiss="modal">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+    CKEDITOR.replace('body');
+</script>
 </body>
 </html>
